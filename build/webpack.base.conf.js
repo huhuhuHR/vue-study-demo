@@ -1,10 +1,14 @@
 'use strict'
+// path 【路径模块】
 const path = require('path')
+// build目录中的utils.js文件
 const utils = require('./utils')
+// config目录中的index文件
 const config = require('../config')
+// build目录中的vue-loader.conf.js文件
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
