@@ -7,24 +7,24 @@
     brew search xxx
     brew install xxx
     brew remove xxx
-    
-###### 安装node    
+
+###### 安装node
     brew install node
     brew search node brew unlink node brew install homebrew/versions/node010
-    
+
 ###### 安装npm
     npm install -g npm
     npm -g install npm@2.9.1
-    
+
 ###### 安装vue-cli
-    npm install -g vue-cli 
-    
+    npm install -g vue-cli
+
 ###### vue-cli构建一个vuedemo
 * cmd打开命令行窗口
 * 输入npm install -g vue-cli，然后回车等待
 * 安装结束后输入vue -V 如果显示版本号继续下一步操作
 * vue init webpack 后面接上要创建的目录名回车
-* 显示Project nanme 目录名 回车 project description 后面可以写上描述，或者直接回车，Author 后面可以写作者也可以回车 
+* 显示Project nanme 目录名 回车 project description 后面可以写上描述，或者直接回车，Author 后面可以写作者也可以回车
 * Install vue-router? 选择Y
 * User ESLint to lint your code? 选Y
 * Setup unit tests with Karma + Mocha? 问的是否要测试 选n
@@ -41,5 +41,3 @@
 ### JavaScript 严格模式(use strict)
 ###### [use strict](http://www.runoob.com/js/js-strict.html)
 
-### vue 项目结构
-###### [vue-cli生成的项目结构](http://vuejs-templates.github.io/webpack/structure.html)

@@ -2,7 +2,7 @@
 > 按照一定的规则去除javascript一些容易让人混淆的语法
 # ES6声明变量的方式？
 > let 关键字let与var关键字不同在于let为块作用域 <br>
-> constant <br>
+> const 常量不可修改<br>
 > var 第一变量提升（对变量的定义会默认提前至函数开始处）,第二变量没有块作用域只有函数作用域 <br>
 ```
 (function scope() {
@@ -45,6 +45,19 @@ module.exports.addX = addX;
 var example = require('./example.js');
 console.log(example.x); // 5
 console.log(example.addX(1)); // 6
+----------------------------
+var x = 5;
+var addX = function (value) {
+  return value + x;
+};
+module.exports = {
+	x,
+	addX
+}
+----------------------------
+const  a = require('./a.js') ;
+console.log(a.x);
+console.log(a.addX(1));
 ```
 # exports 与 module.exports
 * 为了方便，Node为每个模块提供一个exports变量，指向module.exports。这等同在每个模块头部，有一行这样的命令。
