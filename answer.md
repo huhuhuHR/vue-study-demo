@@ -93,5 +93,4 @@ export default function () {
   console.log('foo');
 }
 ```
-# [CommonJS规范](http://javascript.ruanyifeng.com/nodejs/module.html)
-# [ES6 Module 的语法](http://es6.ruanyifeng.com/#docs/module)
+# vue-cli es6转es5 保证浏览器兼容性

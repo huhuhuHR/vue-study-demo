@@ -1,4 +1,6 @@
 'use strict'
+// 这个文件是在打包的时候，会被用到的
+// heck-version.js中的函数，然后确定了一下node和npm的版本。相对于较低版本的node和npm，
 require('./check-versions')()
 
 process.env.NODE_ENV = 'production'

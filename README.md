@@ -1,6 +1,10 @@
 # vue2.0环境构建
-
-### 安装node,npm,vue-cli
+> vue -V <br>
+> 2.9.6 <br>
+> node -v <br>
+> v10.8.0 <br>
+> npm -v <br>
+> 6.2.0 <br>
 
 ###### mac下面安装brew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -14,12 +18,25 @@
 
 ###### 安装npm
     npm install -g npm
-    npm -g install npm@2.9.1
+    npm -g install npm@2.9.6
+
+##### 升级node和npm
+* 第一步，先查看本机node.js版本：node -v
+* 第二步，清除node.js的cache：sudo npm cache clean -f
+* 第三步，安装 n 工具，这个工具是专门用来管理node.js版本的，别怀疑这个工具的名字，是他是他就是他，他的名字就是 "n" sudo npm install -g n
+* 第四步，安装最新版本的node.js sudo n stable
+* 第五步，再次查看本机的node.js版本：node -v
+* 第六步，更新npm到最新版：sudo npm install npm@latest -g
+* 第七步，验证 node -v npm -v
+
+##### npm配置
+* 配置镜像路径 npm config set registry https://registry.npm.taobao.org
+* 直接使用镜像路径安装 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 ###### 安装vue-cli
     npm install -g vue-cli
 
-###### vue-cli构建一个vuedemo
+###### vue-cli构建一个vue-study-demo
 * cmd打开命令行窗口
 * 输入npm install -g vue-cli，然后回车等待
 * 安装结束后输入vue -V 如果显示版本号继续下一步操作
@@ -33,11 +50,4 @@
 * 创建结束后在创建目录里面按住shift+右键 选择 在此处打开命令窗口 输入npm run dev启动应用，启动成功它会自动打开一个vue页面
 * 每次这样启动是很麻烦的，用开发工具加载整个项目，里面有个package.json，它我整个项目的配置和信息的描述，里面有个scripts,这是定义的一些脚本，刚才用的就是里面的dev，它会执行后面的东西，就是用node跑一个JSON文件
 * 在项目中，右击package.json选择show npm scripts,显示npm后，双击命令即可
-
-### 关于vue里边用到的CommonJS(module.exports,require)，Es6(export,import)
-###### [CommonJS规范](http://javascript.ruanyifeng.com/nodejs/module.html)
-###### [ES6 Module 的语法](http://es6.ruanyifeng.com/#docs/module)
-
-### JavaScript 严格模式(use strict)
-###### [use strict](http://www.runoob.com/js/js-strict.html)
 

@@ -7,9 +7,23 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    // Paths 资源子目录
     assetsSubDirectory: 'static',
+    // 资源路径公共部分
     assetsPublicPath: '/',
+    //本地开发势必会用到与后台接口交互，非同一个服务下势必有跨域问题，
+    // 这个配置用于配置代理，代理同域接口访问到跨域接口
+    // 配置举例：
+    // '/api': {
+    //   target: 'http://localhost:10087',
+    // changeOrigin-true 将主机头的起源更改为目标UR 就不存在跨域了
+    // changeOrigin: true,
+    // 改写目标的url路径。对象键将作为RegExp来匹配路径。
+    //   pathRewrite: {
+    //     '^/api': '/api'
+    //   }
+    // }
+    // https://github.com/chimurai/http-proxy-middleware
     proxyTable: {},
 
     // Various Dev Server settings

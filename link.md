@@ -1,0 +1,5 @@
+### 关于vue里边用到的CommonJS(module.exports,require)，Es6(export,import)
+###### [CommonJS规范](http://javascript.ruanyifeng.com/nodejs/module.html)
+###### [ES6 Module 的语法](http://es6.ruanyifeng.com/#docs/module)
+### JavaScript 严格模式(use strict)
+###### [use strict](http://www.runoob.com/js/js-strict.html)
