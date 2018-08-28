@@ -94,3 +94,5 @@ export default function () {
 }
 ```
 # vue-cli es6转es5 保证浏览器兼容性
+# 引入less
+    npm install less less-loader css-loader style-loader--save-dev
