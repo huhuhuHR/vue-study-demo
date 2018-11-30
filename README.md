@@ -2,9 +2,9 @@
 > vue -V <br>
 > 2.9.6 <br>
 > node -v <br>
-> v10.8.0 <br>
+> v8.1.2 <br>
 > npm -v <br>
-> 6.2.0 <br>
+> 6.4.1 <br>
 
 ###### mac下面安装brew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -50,4 +50,41 @@
 * 创建结束后在创建目录里面按住shift+右键 选择 在此处打开命令窗口 输入npm run dev启动应用，启动成功它会自动打开一个vue页面
 * 每次这样启动是很麻烦的，用开发工具加载整个项目，里面有个package.json，它我整个项目的配置和信息的描述，里面有个scripts,这是定义的一些脚本，刚才用的就是里面的dev，它会执行后面的东西，就是用node跑一个JSON文件
 * 在项目中，右击package.json选择show npm scripts,显示npm后，双击命令即可
+###### vue 全家桶
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+###### 自己封装axios
+* 配置config
+* 集成api
+```
+http.api({
+  url: '',
+  params: {
+  },
+  emulateJSON: true,
+  useLoadLayer: true,
+  successCallback: function (data) {
+  }.bind(this),
+  errorCallback: function (data) {
+  }.bind(this)
+})
+@RequestMapping("getLoginInfo")
+  public Result getLoginInfo(@RequestParam Map params) {}
 
+uploadExcel () {
+  var form = new FormData();
+  let fileExel = this.$el.getElementsByClassName('input1')[0].files[0];
+  console.log(fileExel);
+  form.append('fileExel', fileExel);
+  this.$http.uploadApi({
+    url: this.HOST + '/excel/uploadJedis',
+    params: form,
+    successCallback: function (data) {
+    }.bind(this),
+    errorCallback: function (data) {
+    }.bind(this)
+  });
+}
+@RequestMapping(value = "uploadExcel", method = RequestMethod.POST)
+  public Result upload(@RequestParam("fileExel") MultipartFile fileExel) {}

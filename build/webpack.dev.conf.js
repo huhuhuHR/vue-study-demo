@@ -9,11 +9,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-const Jarvis = require("webpack-jarvis");
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-// 引用了webapck-merge这npm包，它可以将两个配置对象，进行合并
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
@@ -65,10 +64,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ]),
-    new Jarvis({
-      port: 1337 // optional: set a port
-    })
+    ])
   ]
 })
 
