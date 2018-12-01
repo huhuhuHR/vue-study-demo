@@ -9,12 +9,13 @@
 ##### package.json
 ```
   "dependencies": {
+    "axios": "^0.18.0 ",
+    "element-ui": "^2.4.11",
+    "url-search-params": "^1.1.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "axios": "^0.18.0 ",
-    "vuex-router-sync": "^3.0.0",
-    "url-search-params": "^1.1.0"
+    "vuex-router-sync": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

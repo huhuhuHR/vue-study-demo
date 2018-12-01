@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view></router-view>
     <opeartion-dialog></opeartion-dialog>
     <load-layer></load-layer>
   </div>
@@ -20,6 +20,10 @@
 
 <style>
   @import "./assets/icon/iconfont.css";
+
+  html {
+    background-color: #b2bac2;
+  }
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -6,8 +6,15 @@ import App from './App'
 import router from './router'
 // ajax
 import config from './http/ajaxConfig'
+// vuex状态管理
 import store from './store'
+// 主要是把 vue-router 的狀態放進 vuex 的 state 中
 import {sync} from 'vuex-router-sync'
+// ElementUI
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.use(ElementUI)
 // 初始axios基本参数
 config.ajaxConfig(Vue)
 
