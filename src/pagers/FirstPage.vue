@@ -6,16 +6,22 @@
     <div>
       <button @click="doOperation()">弹框</button>
     </div>
+    <div>
+      <button @click="request()">request</button>
+    </div>
+    <div>{{response}}</div>
   </div>
 </template>
 
 <script>
   import {OPERATION_RESULT_SHOW, OPERATION_RESULT_HIDDEN} from '../store/mutation-types'
+  import http from '../http/http'
 
   export default {
     data () {
       return {
-        name: 'firstPage'
+        name: 'firstPage',
+        response: {}
       }
     },
     methods: {
@@ -25,9 +31,28 @@
             'iconfont': 'icon-chenggong',
             'text': '成功'
           })
-        // setTimeout(function () {
-        //   this.$store.commit('OPERATION_RESULT_HIDDEN')
-        // }.bind(this), 1500)
+        setTimeout(function () {
+          this.$store.commit('OPERATION_RESULT_HIDDEN')
+        }.bind(this), 1500)
+      },
+      request () {
+        let url = '/test/v1/t13'
+        let params = {
+          name: 'huorong'
+        }
+        http.ajax({
+          url: url,
+          method: 'GET',
+          params: params,
+          emulateJSON: true,
+          useLoadLayer: true,
+          successCallback: function (data) {
+            this.response = data
+          }.bind(this),
+          errorCallback: function (data) {
+            this.response = data
+          }.bind(this)
+        })
       }
     },
 //    在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。

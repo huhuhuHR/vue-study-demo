@@ -31,7 +31,7 @@ const transformRequest = (axios) => {
     // emulateJSON => json json格式的参数 requestBody
     if (!data.emulateJSON) {
       headers['Content-Type'] = 'application/json;charset=UTF-8'
-      console.log('!emulateJSON')
+      // console.log('!emulateJSON')
       return JSON.stringify(data)
     }
     // emulateJSON => x-www-form-urlencoded form表单 requestParams
@@ -62,7 +62,7 @@ const addRequestInterceptors = (axios) => {
 // Add a response interceptor
 const addResponseInterceptors = (axios) => {
   axios.interceptors.response.use(function (response) {
-    console.log(response.onprogress)
+    // console.log(response.onprogress)
     store.commit(CHANGE_LOAD_SHOW_STATE, false)
     return response
   }, function (error) {
