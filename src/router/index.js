@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {firstPage} from '../pagers/index'
+import {firstPage, jsonTree} from '../pagers/index'
 
 Vue.use(Router)
 
@@ -12,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'firstPage',
       component: firstPage
+    },
+    {
+      path: '/json',
+      name: 'jsonTree',
+      component: jsonTree
     }
   ]
 })
