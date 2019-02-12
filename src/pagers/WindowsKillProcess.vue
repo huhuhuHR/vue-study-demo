@@ -4,8 +4,8 @@
       <el-input v-model="input" placeholder="请输入内容" @keyup.enter.native="onSubmit"></el-input>
     </el-container>
     <el-container>
-      <div v-for="(index,pid) in pidSet ">
-        {{index}}-{{pid}}
+      <div v-for="pid in pidSet ">
+        {{pid}}
       </div>
     </el-container>
   </div>
