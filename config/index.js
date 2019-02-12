@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/test': {
-        target: 'http://localhost:7099', // 接口域名
+        target: 'http://localhost:9005', // 接口域名
         changeOrigin: true, //是否跨域
         pathRewrite: {
           '^/test': '/test' //需要rewrite重写的.需要项目名字就加，不需要就不加，对于springboot的server.servlet.path
