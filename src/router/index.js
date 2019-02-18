@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {firstPage, jsonTree, windowsKillProcess} from '../pagers/index'
+import {firstPage, jsonTree, windowsKillProcess,echars} from '../pagers/index'
 
 Vue.use(Router)
 
@@ -22,6 +22,11 @@ export default new Router({
       path: '/windowsKillProcess',
       name: 'windowsKillProcess',
       component: windowsKillProcess
+    },
+    {
+      path: '/echars',
+      name: 'echars',
+      component: echars
     }
   ]
 })
