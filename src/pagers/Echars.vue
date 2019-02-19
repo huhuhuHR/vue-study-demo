@@ -1,5 +1,5 @@
 <template>
-  <div id="myChart" style="width:600px;height:600px;"></div>
+  <div id="myChart" style="width:1200px;height:500px;"></div>
 </template>
 
 <script>
@@ -7,7 +7,10 @@
     name: '',
     data() {
       return {
-        captureTime: [1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1]
+        captureTime: [1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1],
+        xDate: [],
+        dateStr: '2018-02-17',
+        type: '日'
       }
     },
     methods: {
@@ -15,14 +18,11 @@
         this.charts = this.$echarts.init(document.getElementById(id));
         this.charts.setOption({
           title: {
-            text: '宝宝胎动图',
-            subtext: '宝宝专属'
+            text: this.dateStr + '宝宝胎动图',
+            subtext: this.type
           },
           tooltip: {
             trigger: 'axis'
-          },
-          legend: {
-            data: ['小时']
           },
           toolbox: {
             show: true,
@@ -38,7 +38,7 @@
           xAxis: [
             {
               type: 'category',
-              data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+              data: this.xDate
             }
           ],
           yAxis: [
@@ -68,7 +68,10 @@
       }
     },
     created() {
-      console.log(this.captureTime.length)
+      for (let i = 0.5; i <= 24; i += 0.5) {
+        this.xDate.push(i);
+      }
+      console.log(this.xDate);
     },
     //调用
     mounted() {
