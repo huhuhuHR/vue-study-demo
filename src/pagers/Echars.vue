@@ -3,23 +3,21 @@
 </template>
 
 <script>
+  import {OPERATION_RESULT_SHOW, OPERATION_RESULT_HIDDEN} from '../store/mutation-types'
+  import http from '../http/http'
+
   export default {
     name: '',
     data() {
       return {
-        captureTime: [1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1],
-        xDate: [],
-        dateStr: '2018-02-17',
-        type: '日'
-      }
-    },
-    methods: {
-      drawPie(id) {
-        this.charts = this.$echarts.init(document.getElementById(id));
-        this.charts.setOption({
+        yAxisList: [],
+        xAxisList: [],
+        currentDateStr: '2018-02-17 12:00',
+        type: '日',
+        options: {
           title: {
-            text: this.dateStr + '宝宝胎动图',
-            subtext: this.type
+            text: "",
+            subtext: ""
           },
           tooltip: {
             trigger: 'axis'
@@ -38,7 +36,7 @@
           xAxis: [
             {
               type: 'category',
-              data: this.xDate
+              data: []
             }
           ],
           yAxis: [
@@ -48,9 +46,9 @@
           ],
           series: [
             {
-              name: '小时',
+              name: '次数',
               type: 'bar',
-              data: this.captureTime,
+              data: [],
               markPoint: {
                 data: [
                   {type: 'max', name: '最大值'},
@@ -64,14 +62,57 @@
               }
             }
           ]
+        }
+      }
+    },
+    methods: {
+      init() {
+        let url = '/test/baby/init'
+        let params = {
+          currentDateStr: this.currentDateStr
+        }
+        http.ajax({
+          url: url,
+          method: 'POST',
+          params: params,
+          emulateJSON: true,
+          useLoadLayer: true,
+          successCallback: function (data) {
+            let xAxis = data.xAxis
+            for (let i = 0; i < xAxis.length; i++) {
+              this.xAxisList.push(xAxis[i])
+              this.options.xAxis[0].data.push(xAxis[i])
+            }
+            let yAxis = data.yAxis
+            for (let i = 0; i < yAxis.length; i++) {
+              this.yAxisList.push(yAxis[i])
+              this.options.series[0].data.push(yAxis[i])
+            }
+          }.bind(this),
+          errorCallback: function (data) {
+          }.bind(this)
+        })
+      },
+      drawPie(id) {
+        this.charts = this.$echarts.init(document.getElementById(id));
+        this.charts.setOption(this.options)
+        window.addEventListener("resize",function () {
+          this.charts.resize()
         })
       }
     },
-    created() {
-      for (let i = 0.5; i <= 24; i += 0.5) {
-        this.xDate.push(i);
+    watch: {
+      options: {
+        handler(newValue, oldValue) {
+          this.drawPie('myChart', newValue)
+        },
+        deep: true
       }
-      console.log(this.xDate);
+    },
+    created() {
+      this.options.title.text = this.currentDateStr + '宝宝胎动图'
+      this.options.title.subtext = this.type
+      this.init()
     },
     //调用
     mounted() {
