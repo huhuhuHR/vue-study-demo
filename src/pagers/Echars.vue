@@ -1,5 +1,7 @@
 <template>
-  <div id="myChart" style="width:1200px;height:500px;"></div>
+  <div style="width: 100%;overflow-x: scroll;">
+    <div id="myChart" style="width:1200px;height:600px;"></div>
+  </div>
 </template>
 
 <script>
@@ -12,7 +14,7 @@
       return {
         yAxisList: [],
         xAxisList: [],
-        currentDateStr: '2018-02-17 12:00',
+        currentDateStr: '2018-02-23',
         type: '日',
         options: {
           title: {
@@ -96,7 +98,7 @@
       drawPie(id) {
         this.charts = this.$echarts.init(document.getElementById(id));
         this.charts.setOption(this.options)
-        window.addEventListener("resize",function () {
+        window.addEventListener("resize", function () {
           this.charts.resize()
         })
       }
