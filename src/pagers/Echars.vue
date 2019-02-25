@@ -14,7 +14,7 @@
       return {
         yAxisList: [],
         xAxisList: [],
-        currentDateStr: '2018-02-23',
+        currentDateStr: '2018-02-25',
         type: '日',
         options: {
           title: {
