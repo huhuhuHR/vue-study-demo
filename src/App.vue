@@ -1,11 +1,10 @@
 <template>
-  <div id="app">
+  <el-container id="app">
     <router-view></router-view>
     <opeartion-dialog></opeartion-dialog>
     <load-layer></load-layer>
-  </div>
+  </el-container>
 </template>
-
 <script>
   import {loadLayer, opeartionDialog} from './components/index'
 
@@ -14,12 +13,21 @@
     components: {
       loadLayer,
       opeartionDialog
+    },
+    data() {
+      return {};
     }
   }
 </script>
 
 <style>
+
   @import "./assets/icon/iconfont.css";
+
+  * {
+    margin: 0 auto;
+    padding: 0 auto;
+  }
 
   html {
     background-color: #b2bac2;
@@ -31,6 +39,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    background-color: #eff3f6;
   }
 </style>

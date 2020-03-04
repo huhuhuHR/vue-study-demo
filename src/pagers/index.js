@@ -1,11 +1,7 @@
-import firstPage from './FirstPage'
 import jsonTree from './JsonToTree'
-import windowsKillProcess from './WindowsKillProcess'
-import echars from './Echars'
+import home from './home'
 
 export {
-  firstPage,
   jsonTree,
-  windowsKillProcess,
-  echars
+  home
 }
