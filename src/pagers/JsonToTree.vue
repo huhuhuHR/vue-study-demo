@@ -1,36 +1,42 @@
 <template>
-  <div>
-    <div>
-      <div>
-        <textarea rows="5" cols="50" v-model="json" class="comments"></textarea>
-      </div>
-      <button @click="anlayse()">确认</button>
-    </div>
-    <div>
-      <button @click="selectAll()">全选</button>
-      <button @click="noSelectAll()">全不选</button>
-    </div>
-    <div class="flex">
-      <div class="left">
-        <div v-for="(data,index) in leftTree" class="text-left">
-          <span v-show="data.state" @click="switchChose(index)"><i class="iconfont icon-choice"></i></span>
-          <span v-show="!data.state" @click="switchChose(index)"><i class="iconfont icon-unchoice"></i></span>
-          {{data.id}}
-          <span @click="deleteForTree(index)"><i class="iconfont icon-shanchu"></i></span>
+  <el-main>
+    <el-row>
+      <textarea rows="5" cols="50" v-model="json" class="comments" placeholder="请输出json "/>
+    </el-row>
+    <el-row>
+      <el-button type="primary" @click="anlayse()">确定</el-button>
+      <el-button type="primary" @click="selectAll()">全选</el-button>
+      <el-button type="primary" @click="noSelectAll()">全不选</el-button>
+    </el-row>
+    <el-row type="flex" class="row-bg" justify="center">
+      <el-col :span="12">
+        <div class="grid-content bg-purple">
+          <div class="left">
+            <div v-for="(data,index) in leftTree" class="text-left">
+              <span v-show="data.state" @click="switchChose(index)"><i class="iconfont icon-choice"></i></span>
+              <span v-show="!data.state" @click="switchChose(index)"><i class="iconfont icon-unchoice"></i></span>
+              {{data.id}}
+              <span @click="deleteForTree(index)"><i class="iconfont icon-shanchu"></i></span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="right">
-        <div v-for="(data,index) in rightTree" class="text-left">
-          <span><i class="iconfont icon-choice"></i></span>
-          {{data}}
-          <span @click="deleteFromRight(index)"><i class="iconfont icon-shanchu"></i></span>
+      </el-col>
+      <el-col :span="12">
+        <div class="grid-content bg-purple-light">
+          <div class="right">
+            <div v-for="(data,index) in rightTree" class="text-left">
+              <span><i class="iconfont icon-choice"></i></span>
+              {{data}}
+              <span @click="deleteFromRight(index)"><i class="iconfont icon-shanchu"></i></span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div>
-      <button @click="save()">保存</button>
-    </div>
-  </div>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-button type="primary" @click="save()">保存</el-button>
+    </el-row>
+  </el-main>
 </template>
 <script>
   import {OPERATION_RESULT_SHOW, OPERATION_RESULT_HIDDEN} from '../store/mutation-types'
@@ -145,15 +151,43 @@
   }
 </script>
 
-<style scoped>
-  .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+<style scoped lang="less" rel="stylesheet/less">
+
+  .el-row {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .el-col {
+    border-radius: 4px;
+  }
+
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+
+  .bg-purple {
+    background: #d3dce6;
+  }
+
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
   }
 
   .left {
-    width: 40%;
+    width: 100%;
     border: 1px solid;
     height: 400px;
     overflow-y: scroll;
@@ -161,7 +195,7 @@
   }
 
   .right {
-    width: 40%;
+    width: 100%;
     border: 1px solid;
     height: 400px;
     overflow-y: scroll;

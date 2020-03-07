@@ -1,37 +1,32 @@
 <template>
-  <div id="app">
+  <el-container id="app">
     <opeartion-dialog></opeartion-dialog>
     <load-layer></load-layer>
-    <el-container>
-      <el-aside width="200px">
-        <simple-menu/>
-      </el-aside>
-      <el-main>
-        <div class="container">
-          <router-view/>
-        </div>
-      </el-main>
-    </el-container>
-  </div>
+    <el-aside width="200px">
+      <NavMenu/>
+    </el-aside>
+    <el-main class="app-main">
+      <div class="container">
+        <router-view/>
+      </div>
+    </el-main>
+  </el-container>
 </template>
 <script>
   import {loadLayer, opeartionDialog} from './components/index'
-  import SimpleMenu from "./components/menu/Menu"
+  import NavMenu from "./components/menu/NavMenu"
 
   export default {
     name: 'App',
     components: {
       loadLayer,
       opeartionDialog,
-      SimpleMenu
+      NavMenu
     },
     data() {
-      return {
-        // routes: this.$router.options.routes
-      }
+      return {}
     },
     mounted() {
-      // console.log(this.routes)
     }
   }
 </script>
@@ -45,21 +40,22 @@
     padding: 0 auto;
   }
 
-  html {
-    background-color: #b2bac2;
+  html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    height: 100%;
   }
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    background-color: #eff3f6;
+    height: 100%;
   }
 
   .el-main {
-    background-color: #E9EEF3;
+    /*background-color: #E9EEF3;*/
     color: #333;
     text-align: center;
     line-height: 40px;
@@ -69,4 +65,16 @@
     text-decoration: none;
   }
 
+  .el-aside {
+    display: block;
+    position: absolute;
+    left: 0;
+    max-height: 800px;
+    overflow-y: scroll;
+  }
+
+  .app-main {
+    margin-left: 200px;
+    padding: 0;
+  }
 </style>
