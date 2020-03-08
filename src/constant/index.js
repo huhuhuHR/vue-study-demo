@@ -145,4 +145,156 @@ const routes = [
 
 ];
 
-export {routes}
+const webInfo = [
+  {
+    id: 1,
+    name: "新浪",
+    url: "https://weibo.com/",
+    icon: "icon-xinlang",
+    color: "red"
+  },
+  {
+    id: 2,
+    name: "简书",
+    url: "http://www.jianshu.com/",
+    icon: "icon-jianshu",
+    color: "rgb(234, 111, 90)"
+  },
+  {
+    id: 3,
+    name: "掘金",
+    url: "https://juejin.im/timeline",
+    icon: "icon-juejin",
+    color: "rgb(54, 107, 210)"
+  },
+  {
+    id: 4,
+    name: "CSDN",
+    url: "https://passport.csdn.net/",
+    icon: "icon-csdn",
+    color: "rgb(221, 23, 0)"
+  },
+  {
+    id: 5,
+    name: "GITHUB",
+    url: "https://github.com/",
+    icon: "icon-GitHub",
+    color: "#666"
+  },
+  {
+    id: 6,
+    name: "stackOverflow",
+    url: "https://stackoverflow.com/",
+    icon: "icon-stackoverflowcolor",
+    color: "rgb(255, 129, 15)"
+  },
+  {
+    id: 7,
+    name: "npm",
+    url: "https://www.npmjs.com",
+    icon: "icon-npm",
+    color: "rgb(203, 56, 55)"
+  },
+  {
+    id: 8,
+    name: "docker",
+    url: "https://hub.docker.com/",
+    icon: "icon-docker",
+    color: "#3385ff"
+  },
+  {
+    id: 9,
+    name: "网易课堂",
+    url: "https://study.163.com/my",
+    icon: "icon-wangyi",
+    color: "green"
+  },
+  {
+    id: 10,
+    name: "力扣",
+    url: "https://leetcode-cn.com/problems/combine-two-tables/",
+    icon: "icon-icon_",
+    color: "rgb(54, 107, 210)"
+  },
+  {
+    id: 11,
+    name: "搜索书籍",
+    url: "https://itbook.download/?p=2&tag=&search=",
+    icon: "icon-sousuoshuji",
+    color: "orange"
+  },
+  {
+    id: 12,
+    name: "咕泡学院",
+    url: "https://v.gupaoedu.com",
+    icon: "icon-xuexi",
+    color: "black"
+  }
+];
+
+const companyWebInfo = [
+  {
+    id: 1,
+    name: "邮箱",
+    url: "https://mail.rdunicloud.com:8443/mail/?_task=mail&_caps=pdf%3D1%2Cflash%3D0%2Ctiff%3D0%2Cwebp%3D1&_uid=222&_mbox=INBOX&_action=show",
+    icon: "icon-mail",
+    color: ""
+  },
+  {
+    id: 2,
+    name: "禅道",
+    url: "http://10.0.54.69/zentao/user-login-L3plbnRhby9idWctYnJvd3NlLTE3LS1ieU1vZHVsZS0xNTcuaHRtbA==.html",
+    icon: "icon-chandao",
+    color: ""
+  },
+  {
+    id: 3,
+    name: "jenkins",
+    url: "http://10.0.53.141:8080/jenkins/",
+    icon: "icon-jenkins",
+    color: ""
+  },
+  {
+    id: 4,
+    name: "gitlabel",
+    url: "http://10.0.53.138/users/sign_in",
+    icon: "icon-gitlab",
+    color: ""
+  },
+  {
+    id: 5,
+    name: "OA",
+    url: "http://uworker.unicloud.com/web-oa/page/index.html#/dashboard",
+    icon: "icon-oa1",
+    color: ""
+  },
+  {
+    id: 6,
+    name: "YPI",
+    url: "http://10.0.53.135/group/247",
+    icon: "icon-daohang",
+    color: ""
+  },
+  {
+    id: 7,
+    name: "网盘",
+    url: "https://unidrive.unicloud.com",
+    icon: "icon-wangpan",
+    color: ""
+  },
+  {
+    id: 8,
+    name: "hub",
+    url: "https://cce.unicloudsrv.com",
+    icon: "icon-docker",
+    color: ""
+  },
+  {
+    id: 9,
+    name: "数据中台门户",
+    url: "http://data.unicloud.com/",
+    icon: "icon-shujuzhongtai",
+    color: ""
+  }
+];
+export {routes, webInfo, companyWebInfo}

@@ -27,10 +27,6 @@
       item: { // route object
         type: Object,
         required: true
-      },
-      key: { // route object
-        type: Number,
-        required: false
       }
     },
     mounted() {
