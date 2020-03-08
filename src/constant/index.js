@@ -170,7 +170,7 @@ const webInfo = [
   {
     id: 4,
     name: "CSDN",
-    url: "https://passport.csdn.net/",
+    url: "https://www.csdn.net/",
     icon: "icon-csdn",
     color: "rgb(221, 23, 0)"
   },
